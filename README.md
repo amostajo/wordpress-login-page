@@ -92,7 +92,7 @@ In your theme:
 
 You can modify the HTML and add as many CSS classes as you please to fit your theme. Though there are a couple of things to consider:
 
-* Maintain `@submit.prevent`, `v-model`, `v-show, and `v-for` attributes; otherwise you will lose all processing functionality.
+* Maintain `@submit.prevent`, `v-model`, `v-show`, and `v-for` attributes; otherwise you will lose all processing functionality.
 * Maintain `<?php ?>` tags, since they will echo important data in these views.
 
 ### Hooks
