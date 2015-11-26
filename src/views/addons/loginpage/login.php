@@ -52,7 +52,7 @@
             <!-- IMPORTANT: Notifications must be placed anywhere inside id="login" -->
             <section class="errors"
                 style="display: none;"
-                v-show="errors"
+                v-show="hasErrors"
             >
                 <div v-for="error in errors">
                     {{{ error }}}

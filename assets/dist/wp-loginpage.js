@@ -9341,6 +9341,20 @@ var loginpage = new Vue({
         isLoading: false
     },
 
+    computed: {
+
+        /**
+         * Returns flag indicating if there are errors in form.
+         * @since 1.0
+         */
+        hasErrors: function () {
+
+            return Object.keys(this.errors).length > 0;
+
+        }
+
+    },
+
     methods: {
         /**
          * Performs ajax login.
