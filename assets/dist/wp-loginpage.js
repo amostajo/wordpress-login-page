@@ -9381,8 +9381,11 @@ var loginpage = new Vue({
                     if (response.redirect_to != undefined) {
                         window.location = response.redirect_to
                     }
-                    // Restore
-                    self.isLoading = false;
+                    // Restore loading
+                    if (response.continue_loading == undefined
+                        || !response.continue_loading
+                    )
+                        self.isLoading = false;
                 }
             );
         }
