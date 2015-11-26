@@ -1,0 +1,22 @@
+{
+    "name": "amostajo/wordpress-login-page",
+    "description": "Custom login page for Wordpress Development Templates.",
+    "license": "MIT",
+    "keywords": ["wordpress","wordpress","custom","login"],
+    "authors": [
+        {
+            "name": "Alejandro Mostajo",
+            "email": "amostajo@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "amostajo/lightweight-mvc": ">=1.0.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Amostajo\\Wordpress\\LoginPageAddon\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}

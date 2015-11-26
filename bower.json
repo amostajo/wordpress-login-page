@@ -1,0 +1,7 @@
+{
+  "name": "amostajo/wordpress-login-page",
+  "private": true,
+  "dependencies": {
+    "vue": "~1.0.10"
+  }
+}
