@@ -74,7 +74,8 @@ class LoginController extends Controller
             );
 
             echo json_encode( [
-                'redirect_to' => LoginPage::get_redirect_to(),
+                'continue_loading'  => true,
+                'redirect_to'       => LoginPage::get_redirect_to(),
                 200
             ] ); 
 

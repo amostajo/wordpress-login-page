@@ -65,6 +65,7 @@
 
             <button type="submit"
                 class="btn btn-default"
+                v-show="!isLoading"
             >
                 Reset
             </button>

@@ -62,6 +62,7 @@
 
             <button type="submit"
                 class="btn btn-default"
+                v-show="!isLoading"
             >
                 Login
             </button>
