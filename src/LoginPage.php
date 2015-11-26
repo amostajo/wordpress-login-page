@@ -52,7 +52,7 @@ class LoginPage extends Addon
         // Register script
         wp_register_script(
             'addon-loginpage',
-            plugins_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
+            asset_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
             [ 'jquery' ],
             '1.0.0',
             true
