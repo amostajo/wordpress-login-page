@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 2.0.1
+ * @version 2.0.2
  */
 class LoginPage extends Addon
 {
@@ -41,6 +41,7 @@ class LoginPage extends Addon
      * Enables custom login.
      * @since 1.0
      * @since 2.0.1 Dependency script added.
+     * @since 2.0.2 Bug fixes.
      */
     public function enable_login()
     {
