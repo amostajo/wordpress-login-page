@@ -3,7 +3,7 @@
  * Vue Component & jQuery
  *
  * @author Alejandro Mostajo
- * @version 2.0.1
+ * @version 2.0.3
  * @license MIT
  */
 Vue.component('loginpage-form', {
@@ -97,6 +97,26 @@ Vue.component('loginpage-form', {
         {
             return Object.keys(this.errors).length > 0;
         },
+        /**
+         * Returns post request data.
+         * @since 2.0.3
+         * @var object
+         */
+        request: function()
+        {
+            var request = {
+                _token: this.token
+            };
+            // (1) defaults
+            for (var key in this.defaults) {
+                request[key] = this.defaults[key];
+            }
+            // (2) form data
+            for (var key in this.formData) {
+                request[key] = this.formData[key];
+            }
+            return request;
+        },
     },
     /**
      * Methods.
@@ -106,7 +126,7 @@ Vue.component('loginpage-form', {
         /**
          * Performs ajax login.
          * @since 2.0.1
-         * @since 2.0.3
+         * @since 2.0.3 Double click prevent and request.
          */
         submit: function ()
         {
@@ -120,7 +140,7 @@ Vue.component('loginpage-form', {
             // POST
             jQuery.post(
                 this.action,
-                this.formData,
+                this.request,
                 this.onSubmit
             );
         },

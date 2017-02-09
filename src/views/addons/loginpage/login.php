@@ -6,22 +6,10 @@
 
         <loginpage-form inline-template
             action="<?php echo $action ?>"
+            token="<?php echo $token ?>"
+            :defaults="{redirect_to:'<?php echo $redirect_to ?>'}"
         />
             <form @submit.prevent="submit">
-
-                <!-- IMPORTANT: Token must be present -->
-                <input type="hidden"
-                    value="<?php echo $token ?>"
-                    v-model="formData._token"
-                />
-                <!-- IMPORTANT: Token must be present -->
-
-                <!-- OPTIONAL: Added redirect to after login -->
-                <input type="hidden"
-                    value="<?php echo $redirect_to ?>"
-                    v-model="formData.redirect_to"
-                />
-                <!-- OPTIONAL: Added redirect to after login -->
 
                 <div class="form-group">
                     <label for="user_login">Username</label>
