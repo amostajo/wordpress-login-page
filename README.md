@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/amostajo/wordpress-login-page/downloads)](https://packagist.org/packages/amostajo/wordpress-login-page)
 [![License](https://poser.pugx.org/amostajo/wordpress-login-page/license)](https://packagist.org/packages/amostajo/wordpress-login-page)
 
-Add-on package for [Wordpress Development Templates](http://wordpress-dev.evopiru.com/).
+Add-on package for [Wordpress MVC](http://www.wordpress-mvc.com/).
 
 **Login Page** add-on provides fully customizable ajax login, sign up, and password reset pages for wordpress. Everything out-of-the-box!
 
@@ -49,8 +49,7 @@ Add the following string line in your `addons` array option located at your temp
 ```
 
 This should be added to:
-* `config\plugin.php` on Wordpress Plugin Template
-* `config\theme.php` on Wordpress Theme Template
+* `app\Config\app.php` on Wordpress MVC.
 
 ## Usage
 
