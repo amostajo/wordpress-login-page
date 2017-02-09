@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 1.0
+ * @version 2.0.1
  */
 class LoginPage extends Addon
 {
@@ -40,6 +40,7 @@ class LoginPage extends Addon
     /**
      * Enables custom login.
      * @since 1.0
+     * @since 2.0.1 Dependency script added.
      */
     public function enable_login()
     {
@@ -50,11 +51,28 @@ class LoginPage extends Addon
         )
             return;
         // Register script
+        $vue = false;
+        if ( $this->main->config( 'autoenqueue.addons.vue' ) === true
+            || $this->main->config( 'autoenqueue.addons.vue' ) === null
+        ) {
+            wp_register_script(
+                'addon-loginpage-vue',
+                asset_url( '../assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
+                [ 'jquery' ],
+                '1.0.0',
+                true
+            );
+            $vue = true;
+        }
         wp_register_script(
             'addon-loginpage',
             asset_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
-            [ 'jquery' ],
-            '1.0.0',
+            $vue
+                ? [ 'addon-loginpage-vue' ]
+                : $this->main->config( 'autoenqueue.app-key' )
+                    ? [ 'jquery', $this->main->config( 'autoenqueue.app-key' ) ]
+                    : [ 'jquery' ],
+            '2.0.1',
             true
         );
         // Enable pages
