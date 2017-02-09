@@ -59,7 +59,7 @@ class LoginPage extends Addon
                 'addon-loginpage-vue',
                 asset_url( '../assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
                 [ 'jquery' ],
-                '1.0.0',
+                '2.0.1',
                 true
             );
             $vue = true;
