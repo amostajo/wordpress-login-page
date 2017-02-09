@@ -59,7 +59,7 @@
                     v-show="hasErrors"
                 >
                     <div v-for="error in errors">
-                        {{{ error }}}
+                        {{ error }}
                     </div>
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="login" -->

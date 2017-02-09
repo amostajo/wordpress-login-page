@@ -28,6 +28,26 @@ Vue.component('loginpage-form', {
             type: String,
             default: undefined,
         },
+        /**
+         * Security token.
+         * @since 2.0.3
+         * @var string
+         */
+        token:
+        {
+            type: String,
+            default: undefined,
+        },
+        /**
+         * Default data.
+         * @since 2.0.3
+         * @var string
+         */
+        defaults:
+        {
+            type: Object,
+            default: undefined,
+        },
     },
     /**
      * Data.
@@ -86,8 +106,13 @@ Vue.component('loginpage-form', {
         /**
          * Performs ajax login.
          * @since 2.0.1
+         * @since 2.0.3
          */
-        submit: function () {
+        submit: function ()
+        {
+            // Prevent double clicking
+            if (this.isLoading)
+                return;
             // Reset login data
             this.isLoading = true;
             this.message = '';

@@ -51,7 +51,7 @@
                     v-show="hasErrors"
                 >
                     <div v-for="error in errors">
-                        {{{ error }}}
+                        {{ error }}
                     </div>
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
@@ -62,7 +62,7 @@
                     style="display: none;"
                     v-show="message"
                 >
-                    {{{ message }}}
+                    {{ message }}
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
 

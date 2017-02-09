@@ -83,12 +83,12 @@ class PasswordController extends Controller
         try {
             // Method validation
             if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
-                throw new Exception( 'Invalid request method.' );
+                throw new Exception( __( 'Invalid request method.' ) );
             }
 
             // Token validation
             if ( $input[ 'token' ] != LoginPage::get_token() ) {
-                throw new Exception( 'Invalid security token.' );
+                throw new Exception( __( 'Invalid security token.' ) );
             }
 
             $user = $errors = null;
@@ -111,8 +111,8 @@ class PasswordController extends Controller
                 wp_die();
             }
 
-            $message = 'An email with instructions on to how to reset your password has been sent to your email address.'
-                . '<br>Please check your inbox to continue.';
+            $message = __( 'An email with instructions on to how to reset your password has been sent to your email address.'
+                . '<br>Please check your inbox to continue.' );
 
             echo json_encode( [
                 'message'   => apply_filters( 'addon_loginpage_forgotpassword_message', $message ),
@@ -148,12 +148,12 @@ class PasswordController extends Controller
         try {
             // Method validation
             if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
-                throw new Exception( 'Invalid request method.' );
+                throw new Exception( __( 'Invalid request method.' ) );
             }
 
             // Token validation
             if ( $input[ 'token' ] != LoginPage::get_token() ) {
-                throw new Exception( 'Invalid security token.' );
+                throw new Exception( __( 'Invalid security token.' ) );
             }
 
             $user = get_user_by( 'id', $input[ 'ID' ] );
@@ -163,22 +163,22 @@ class PasswordController extends Controller
             if ( empty( $user ) )
                 $errors->add(
                     'invalid_user',
-                    'The <strong>User</strong> is invalid.'
+                    __( 'The <strong>User</strong> is invalid.' )
                 );
             if ( empty( $input[ 'user_pass' ] ) )
                 $errors->add(
                     'empty_password',
-                    'Field <strong>Password</strong> cannot be empty.'
+                    __( 'Field <strong>Password</strong> cannot be empty.' )
                 );
             if ( empty( $input[ 'repeat_pass' ] ) )
                 $errors->add(
                     'empty_repeat_password',
-                    'Field <strong>Password (repeat)</strong> can not be empty.'
+                    __( 'Field <strong>Password (repeat)</strong> can not be empty.' )
                 );
             if ( $input[ 'user_pass' ] !== $input[ 'repeat_pass' ] )
                 $errors->add(
                     'unmatch_passwords',
-                    'Fields <strong>Password</strong> and <strong>Password (repeat)</strong> must match.'
+                    __( 'Fields <strong>Password</strong> and <strong>Password (repeat)</strong> must match.' )
                 );
 
             if ( !empty( $errors->errors ) ) {
@@ -280,7 +280,7 @@ class PasswordController extends Controller
 
             $errors->add(
                 'empty_user_login',
-                'Field <strong>Username or Email</strong> cannot be empty.'
+                __( 'Field <strong>Username or Email</strong> cannot be empty.' )
             );
 
         } else if ( preg_match('/\@/', $value ) ) {
@@ -288,14 +288,14 @@ class PasswordController extends Controller
             if ( !is_email( $value ) ) {
                 $errors->add(
                     'invalid_email',
-                    'Field <strong>Email</strong> is invalid.'
+                    __( 'Field <strong>Email</strong> is invalid.' )
                 );
             } else if ( email_exists( $value ) ) {
                 $user = get_user_by( 'email', $value );
             } else {
                 $errors->add(
                     'email_unknown',
-                    'Unknown <strong>Email</strong>.'
+                    __( 'Unknown <strong>Email</strong>.' )
                 );
             }
 
@@ -306,7 +306,7 @@ class PasswordController extends Controller
             } else { 
                 $errors->add(
                     'username_unknown',
-                    'Unknown <strong>Username</strong>.'
+                    __( 'Unknown <strong>Username</strong>.' )
                 );
             }
 
@@ -320,7 +320,7 @@ class PasswordController extends Controller
         if ( !apply_filters( 'allow_password_reset', true, $user->ID ) ) {
             $errors->add(
                 'no_password_reset',
-                'Password reset is not allowed for this user.'
+                __( 'Password reset is not allowed for this user.' )
             );
         }
     }
@@ -359,7 +359,7 @@ class PasswordController extends Controller
             if ( !$user )
                 $errors->add(
                     'invalid_user',
-                    'This <strong>reset link</strong> does not appear to be valid.'
+                    __( 'This <strong>reset link</strong> does not appear to be valid.' )
                 );
         }
 

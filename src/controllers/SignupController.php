@@ -149,59 +149,59 @@ class SignupController extends Controller
         if ( empty( $user['user_login'] ) ) {
             $errors->add(
                 'empty_username',
-                'Field <strong>Username</strong> can not be empty.'
+                __( 'Field <strong>Username</strong> can not be empty.' )
             );
         }
 
         if ( empty( $user['user_email'] ) ) {
             $errors->add(
                 'empty_email',
-                'Field <strong>Email</strong> can not be empty.'
+                __( 'Field <strong>Email</strong> can not be empty.' )
             );
         }
 
         if ( empty( $user['user_pass'] ) ) {
             $errors->add(
                 'empty_password',
-                'Field <strong>Password</strong> can not be empty.'
+                __( 'Field <strong>Password</strong> can not be empty.' )
             );
         }
 
         if ( empty( $user['repeat_pass'] ) ) {
             $errors->add(
                 'empty_repeat_password',
-                'Field <strong>Password (repeat)</strong> can not be empty.'
+                __( 'Field <strong>Password (repeat)</strong> can not be empty.' )
             );
         }
 
         if ( $user['user_pass'] !== $user['repeat_pass'] ) {
             $errors->add(
                 'unmatch_passwords',
-                'Fields <strong>Password</strong> and <strong>Password (repeat)</strong> must match.'
+                __( 'Fields <strong>Password</strong> and <strong>Password (repeat)</strong> must match.' )
             );
         }
 
         if ( !validate_username( $user['user_login'] ) ) {
             $errors->add(
                 'invalid_username',
-                'Field <strong>Username</strong> is invalid. It uses illegal characters.'
+                __( 'Field <strong>Username</strong> is invalid. It uses illegal characters.' )
             );
         } else if ( username_exists( $user['user_login'] ) ) {
             $errors->add(
                 'username_exists',
-                'The selected <strong>Username</strong> is already in use, please choose another one.'
+                __( 'The selected <strong>Username</strong> is already in use, please choose another one.' )
             );
         }
 
         if ( !is_email( $user['user_email'] ) ) {
             $errors->add(
                 'invalid_email',
-                'Field <strong>Email</strong> is invalid.'
+                __( 'Field <strong>Email</strong> is invalid.' )
             );
         } else if ( email_exists( $user['user_email'] ) ) {
             $errors->add(
                 'email_exists',
-                'The selected <strong>Email</strong> is already in use, please choose another one.'
+                __( 'The selected <strong>Email</strong> is already in use, please choose another one.' )
             );
         }
 

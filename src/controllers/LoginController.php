@@ -15,7 +15,7 @@ use Amostajo\Wordpress\LoginPageAddon\LoginPage;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\PostPickerAddon
- * @version 2.0.0
+ * @version 2.0.2
  */
 class LoginController extends Controller
 {
@@ -43,6 +43,7 @@ class LoginController extends Controller
      * Performs ajax login.
      * @since 1.0
      * @since 2.0.0 Added actions.
+     * @since 2.0.2 Added localization.
      */
     public function ajax()
     {
@@ -60,12 +61,12 @@ class LoginController extends Controller
         try {
             // Method validation
             if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
-                throw new Exception( 'Invalid request method.' );
+                throw new Exception( __( 'Invalid request method.' ) );
             }
 
             // Token validation
             if ( $input[ 'token' ] != LoginPage::get_token() ) {
-                throw new Exception( 'Invalid security token.' );
+                throw new Exception( __( 'Invalid security token.' ) );
             }
 
             $this->authenticate(
@@ -150,10 +151,10 @@ class LoginController extends Controller
     protected function authenticate($user_login, $user_pass, $remember = false)
     {
         if ( empty( $user_login ) )
-            throw new Exception( 'Username cannot be empty.', 1001 );
+            throw new Exception( __( 'Username cannot be empty.' ), 1001 );
 
         if ( empty( $user_pass ) )
-            throw new Exception( 'Password cannot be empty.', 1002 );
+            throw new Exception( __( 'Password cannot be empty.' ), 1002 );
 
         // Login
         $user = wp_signon(
