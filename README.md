@@ -23,7 +23,7 @@ This package requires [Composer](https://getcomposer.org/).
 Add it in your `composer.json` file located on your template's root folder:
 
 ```json
-"amostajo/wordpress-login-page": "1.0.*"
+"amostajo/wordpress-login-page": "2.0.*"
 ```
 
 Then run
