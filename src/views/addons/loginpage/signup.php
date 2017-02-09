@@ -101,6 +101,7 @@
             </div>
             <!-- OPTIONAL -->
 
+            <?php do_action( 'addon_loginpage_inside_signup_form' ) ?>
 
             <!-- IMPORTANT: Error notifications must be placed anywhere inside id="signup" -->
             <section class="errors"
