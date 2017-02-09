@@ -3,10 +3,10 @@
 namespace Amostajo\Wordpress\LoginPageAddon\Controllers;
 
 use Exception;
-use Amostajo\WPPluginCore\Log;
-use Amostajo\WPPluginCore\Cache;
-use Amostajo\LightweightMVC\Controller;
-use Amostajo\LightweightMVC\Request;
+use WPMVC\Log;
+use WPMVC\Cache;
+use WPMVC\Request;
+use WPMVC\MVC\Controller;
 use Amostajo\Wordpress\LoginPageAddon\LoginPage;
 
 /**
@@ -15,7 +15,7 @@ use Amostajo\Wordpress\LoginPageAddon\LoginPage;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\PostPickerAddon
- * @version 1.0
+ * @version 2.0.0
  */
 class LoginController extends Controller
 {
@@ -42,6 +42,7 @@ class LoginController extends Controller
     /**
      * Performs ajax login.
      * @since 1.0
+     * @since 2.0.0 Added actions.
      */
     public function ajax()
     {
@@ -72,6 +73,8 @@ class LoginController extends Controller
                 $input[ 'user_password' ],
                 $input[ 'remember' ]
             );
+
+            do_action( 'addon_loginpage_after_login' );
 
             echo json_encode( [
                 'continue_loading'  => true,

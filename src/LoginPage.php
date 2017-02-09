@@ -2,8 +2,8 @@
 
 namespace Amostajo\Wordpress\LoginPageAddon;
 
-use Amostajo\WPPluginCore\Addon;
-use Amostajo\LightweightMVC\Request;
+use WPMVC\Addon;
+use WPMVC\Request;
 
 /**
  * Login Page add-on.

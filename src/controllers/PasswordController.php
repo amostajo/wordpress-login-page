@@ -4,10 +4,10 @@ namespace Amostajo\Wordpress\LoginPageAddon\Controllers;
 
 use WP_Error;
 use Exception;
-use Amostajo\WPPluginCore\Log;
-use Amostajo\WPPluginCore\Cache;
-use Amostajo\LightweightMVC\Controller;
-use Amostajo\LightweightMVC\Request;
+use WPMVC\Log;
+use WPMVC\Cache;
+use WPMVC\Request;
+use WPMVC\MVC\Controller;
 use Amostajo\Wordpress\LoginPageAddon\LoginPage;
 
 /**

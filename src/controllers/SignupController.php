@@ -4,10 +4,10 @@ namespace Amostajo\Wordpress\LoginPageAddon\Controllers;
 
 use WP_Error;
 use Exception;
-use Amostajo\WPPluginCore\Log;
-use Amostajo\WPPluginCore\Cache;
-use Amostajo\LightweightMVC\Controller;
-use Amostajo\LightweightMVC\Request;
+use WPMVC\Log;
+use WPMVC\Cache;
+use WPMVC\Request;
+use WPMVC\MVC\Controller;
 use Amostajo\Wordpress\LoginPageAddon\LoginPage;
 
 /**
@@ -16,7 +16,7 @@ use Amostajo\Wordpress\LoginPageAddon\LoginPage;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\PostPickerAddon
- * @version 1.0
+ * @version 2.0.0
  */
 class SignupController extends Controller
 {
@@ -37,6 +37,7 @@ class SignupController extends Controller
     /**
      * Performs ajax signup.
      * @since 1.0
+     * @since 2.0.0 Added actions.
      */
     public function ajax()
     {
@@ -89,6 +90,8 @@ class SignupController extends Controller
             $userdata['ID'] = wp_insert_user( $userdata );
 
             do_action( 'user_register', $userdata['ID'] );
+
+            do_action( 'addon_loginpage_after_signup', $userdata );
 
             $message = 'Your account has been created!'
                 . '<div><a href="'

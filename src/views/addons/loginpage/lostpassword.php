@@ -32,6 +32,8 @@
                 />
             </div>
 
+            <?php do_action( 'addon_loginpage_inside_lost_password_form' ) ?>
+
             <!-- IMPORTANT: Error notifications must be placed anywhere inside id="signup" -->
             <section class="errors"
                 style="display: none;"

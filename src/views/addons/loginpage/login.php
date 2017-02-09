@@ -49,6 +49,8 @@
                 </label>
             </div>
 
+            <?php do_action( 'addon_loginpage_inside_login_form' ) ?>
+
             <!-- IMPORTANT: Notifications must be placed anywhere inside id="login" -->
             <section class="errors"
                 style="display: none;"
