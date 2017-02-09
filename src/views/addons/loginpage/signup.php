@@ -98,9 +98,7 @@
                     style="display: none;"
                     v-show="hasErrors"
                 >
-                    <div v-for="error in errors">
-                        {{ error }}
-                    </div>
+                    <div v-for="error in errors" v-html="error"></div>
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
 
@@ -108,9 +106,8 @@
                 <section class="success"
                     style="display: none;"
                     v-show="message"
-                >
-                    {{ message }}
-                </section>
+                    v-html="message"
+                ></section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
 
                 <button type="submit"

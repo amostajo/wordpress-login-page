@@ -46,9 +46,7 @@
                     style="display: none;"
                     v-show="hasErrors"
                 >
-                    <div v-for="error in errors">
-                        {{ error }}
-                    </div>
+                    <div v-for="error in errors" v-html="error"></div>
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="login" -->
 
