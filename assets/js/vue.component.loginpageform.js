@@ -97,26 +97,6 @@ Vue.component('loginpage-form', {
         {
             return Object.keys(this.errors).length > 0;
         },
-        /**
-         * Returns post request data.
-         * @since 2.0.3
-         * @var object
-         */
-        request: function()
-        {
-            var request = {
-                _token: this.token
-            };
-            // (1) defaults
-            for (var key in this.defaults) {
-                request[key] = this.defaults[key];
-            }
-            // (2) form data
-            for (var key in this.formData) {
-                request[key] = this.formData[key];
-            }
-            return request;
-        },
     },
     /**
      * Methods.
@@ -140,7 +120,7 @@ Vue.component('loginpage-form', {
             // POST
             jQuery.post(
                 this.action,
-                this.request,
+                this.getRequest(),
                 this.onSubmit
             );
         },
@@ -166,6 +146,26 @@ Vue.component('loginpage-form', {
                 || !response.continue_loading
             )
                 this.isLoading = false;
+        },
+        /**
+         * Returns post request data.
+         * @since 2.0.3
+         * @var object
+         */
+        getRequest: function()
+        {
+            var request = {
+                _token: this.token
+            };
+            // (1) defaults
+            for (var key in this.defaults) {
+                request[key] = this.defaults[key];
+            }
+            // (2) form data
+            for (var key in this.formData) {
+                request[key] = this.formData[key];
+            }
+            return request;
         },
     },
 });
