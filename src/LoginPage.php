@@ -52,8 +52,8 @@ class LoginPage extends Addon
             return;
         // Register script
         $vue = false;
-        if ( $this->main->config( 'autoenqueue.addons.vue' ) === true
-            || $this->main->config( 'autoenqueue.addons.vue' ) === null
+        if ( $this->main->config->get( 'autoenqueue.addons.vue' ) === true
+            || $this->main->config->get( 'autoenqueue.addons.vue' ) === null
         ) {
             wp_register_script(
                 'addon-loginpage-vue',
@@ -69,8 +69,8 @@ class LoginPage extends Addon
             asset_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
             $vue
                 ? [ 'addon-loginpage-vue' ]
-                : $this->main->config( 'autoenqueue.app-key' )
-                    ? [ 'jquery', $this->main->config( 'autoenqueue.app-key' ) ]
+                : $this->main->config->get( 'autoenqueue.app-key' )
+                    ? [ 'jquery', $this->main->config->get( 'autoenqueue.app-key' ) ]
                     : [ 'jquery' ],
             '2.0.1',
             true
