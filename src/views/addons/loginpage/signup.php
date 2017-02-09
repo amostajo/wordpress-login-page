@@ -2,29 +2,17 @@
 
     <section id="loginpage" class="signup">
 
-        <h1>Sign up</h1>
+        <h1><?php _e( 'Sign up' ) ?></h1>
 
         <loginpage-form inline-template
             action="<?php echo $action ?>"
+            token="<?php echo $token ?>"
+            :defaults="{redirect_to:'<?php echo $redirect_to ?>'}"
         />
             <form @submit.prevent="submit">
 
-                <!-- IMPORTANT: Token must be present -->
-                <input type="hidden"
-                    value="<?php echo $token ?>"
-                    v-model="formData._token"
-                />
-                <!-- IMPORTANT: Token must be present -->
-
-                <!-- OPTIONAL: Added redirect to after login -->
-                <input type="hidden"
-                    value="<?php echo $redirect_to ?>"
-                    v-model="formData.redirect_to"
-                />
-                <!-- OPTIONAL: Added redirect to after login -->
-
                 <div class="form-group">
-                    <label for="user_email">Email</label>
+                    <label for="user_email"><?php _e( 'Email' ) ?></label>
                     <input type="email"
                         id="email"
                         class="form-control"
@@ -33,7 +21,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="user_login">Username</label>
+                    <label for="user_login"><?php _e( 'Username' ) ?></label>
                     <input type="text"
                         id="user_login"
                         class="form-control"
@@ -42,7 +30,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="user_pass">Password</label>
+                    <label for="user_pass"><?php _e( 'Password' ) ?></label>
                     <input type="password"
                         id="user_pass"
                         class="form-control"
@@ -51,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="repeat_pass">Repeat password</label>
+                    <label for="repeat_pass"><?php _e( 'Repeat password' ) ?></label>
                     <input type="password"
                         id="repeat_pass"
                         class="form-control"
@@ -61,7 +49,7 @@
 
                 <!-- OPTIONAL -->
                 <div class="form-group">
-                    <label for="first_name">First name</label>
+                    <label for="first_name"><?php _e( 'First name' ) ?></label>
                     <input type="text"
                         id="first_name"
                         class="form-control"
@@ -72,7 +60,7 @@
 
                 <!-- OPTIONAL -->
                 <div class="form-group">
-                    <label for="first_name">Last name</label>
+                    <label for="first_name"><?php _e( 'Last name' ) ?></label>
                     <input type="text"
                         id="last_name"
                         class="form-control"
@@ -83,7 +71,7 @@
 
                 <!-- OPTIONAL -->
                 <div class="form-group">
-                    <label for="first_name">Display name</label>
+                    <label for="first_name"><?php _e( 'Display name' ) ?></label>
                     <input type="text"
                         id="display_name"
                         class="form-control"
@@ -94,7 +82,7 @@
 
                 <!-- OPTIONAL -->
                 <div class="form-group">
-                    <label for="user_url">Website</label>
+                    <label for="user_url"><?php _e( 'Website' ) ?></label>
                     <input type="text"
                         id="user_url"
                         class="form-control"
@@ -116,7 +104,6 @@
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
 
-
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
                 <section class="success"
                     style="display: none;"
@@ -130,14 +117,14 @@
                     class="btn btn-default"
                     v-show="!isLoading"
                 >
-                    Signup
+                    <?php _e( 'Signup' ) ?>
                 </button>
 
                 <span span="loading"
                     style="display: none;"
                     v-show="isLoading"
                 >
-                    Loading...
+                    <?php _e( 'Loading...' ) ?>
                 </span>
 
             </form>

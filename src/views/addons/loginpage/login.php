@@ -2,7 +2,7 @@
 
     <section id="loginpage" class="login">
 
-        <h1>Login</h1>
+        <h1><?php _e( 'Login' ) ?></h1>
 
         <loginpage-form inline-template
             action="<?php echo $action ?>"
@@ -12,7 +12,7 @@
             <form @submit.prevent="submit">
 
                 <div class="form-group">
-                    <label for="user_login">Username</label>
+                    <label for="user_login"><?php _e( 'Username' ) ?></label>
                     <input type="text"
                         id="user_login"
                         class="form-control"
@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="user_password">Password</label>
+                    <label for="user_password"><?php _e( 'Password' ) ?></label>
                     <input type="password"
                         id="user_password"
                         class="form-control"
@@ -35,7 +35,7 @@
                             id="remember"
                             value="1"
                             v-model="formData.remember"
-                        /> Remember me
+                        /> <?php _e( 'Remember me' ) ?>
                     </label>
                 </div>
 
@@ -56,14 +56,14 @@
                     class="btn btn-default"
                     v-show="!isLoading"
                 >
-                    Login
+                    <?php _e( 'Login' ) ?>
                 </button>
 
                 <span span="loading"
                     style="display: none;"
                     v-show="isLoading"
                 >
-                    Loading...
+                    <?php _e( 'Loading...' ) ?>
                 </span>
 
             </form>

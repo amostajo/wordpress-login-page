@@ -2,31 +2,19 @@
 
     <section id="loginpage" class="lostpassword">
 
-        <h1>Lost your password?</h1>
+        <h1><?php _e( 'Lost your password?' ) ?></h1>
 
-        <p>Verify your information before proceeding.</p>
+        <p><?php _e( 'Verify your information before proceeding.' ) ?></p>
 
         <loginpage-form inline-template
             action="<?php echo $action ?>"
+            token="<?php echo $token ?>"
+            :defaults="{redirect_to:'<?php echo $redirect_to ?>'}"
         />
             <form @submit.prevent="submit">
 
-                <!-- IMPORTANT: Token must be present -->
-                <input type="hidden"
-                    value="<?php echo $token ?>"
-                    v-model="formData._token"
-                />
-                <!-- IMPORTANT: Token must be present -->
-
-                <!-- OPTIONAL: Added redirect to after login -->
-                <input type="hidden"
-                    value="<?php echo $redirect_to ?>"
-                    v-model="formData.redirect_to"
-                />
-                <!-- OPTIONAL: Added redirect to after login -->
-
                 <div class="form-group">
-                    <label for="user_login">Username or Email</label>
+                    <label for="user_login"><?php _e( 'Username or Email' ) ?></label>
                     <input type="text"
                         id="user_login"
                         class="form-control"
@@ -47,7 +35,6 @@
                 </section>
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
 
-
                 <!-- IMPORTANT: Notifications must be placed anywhere inside id="signup" -->
                 <section class="success"
                     style="display: none;"
@@ -61,14 +48,14 @@
                     class="btn btn-default"
                     v-show="!isLoading"
                 >
-                    Verify
+                    <?php _e( 'Verify' ) ?>
                 </button>
 
                 <span span="loading"
                     style="display: none;"
                     v-show="isLoading"
                 >
-                    Loading...
+                    <?php _e( 'Loading...' ) ?>
                 </span>
 
             </form>
