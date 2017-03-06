@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 2.0.2
+ * @version 2.0.4
  */
 class LoginPage extends Addon
 {
@@ -42,6 +42,7 @@ class LoginPage extends Addon
      * @since 1.0
      * @since 2.0.1 Dependency script added.
      * @since 2.0.2 Bug fixes.
+     * @since 2.0.4 Fixed assets_url call.
      */
     public function enable_login()
     {
