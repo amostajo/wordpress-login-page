@@ -58,7 +58,7 @@ class LoginPage extends Addon
         ) {
             wp_register_script(
                 'addon-loginpage-vue',
-                asset_url( '../assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
+                assets_url( '../assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
                 [ 'jquery' ],
                 '2.0.1',
                 true
@@ -67,7 +67,7 @@ class LoginPage extends Addon
         }
         wp_register_script(
             'addon-loginpage',
-            asset_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
+            assets_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
             $vue
                 ? [ 'addon-loginpage-vue' ]
                 : $this->main->config->get( 'autoenqueue.app-key' )
