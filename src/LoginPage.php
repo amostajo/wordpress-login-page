@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 2.0.4
+ * @version 2.0.5
  */
 class LoginPage extends Addon
 {
@@ -43,6 +43,7 @@ class LoginPage extends Addon
      * @since 2.0.1 Dependency script added.
      * @since 2.0.2 Bug fixes.
      * @since 2.0.4 Fixed assets_url call.
+     * @since 2.0.5 Load assets with relative path on vendor.
      */
     public function enable_login()
     {
@@ -59,7 +60,7 @@ class LoginPage extends Addon
         ) {
             wp_register_script(
                 'addon-loginpage-vue',
-                assets_url( '../assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
+                assets_url( '../vendor/amostajo/wordpress-login-page/assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
                 [ 'jquery' ],
                 '2.0.1',
                 true
@@ -68,7 +69,7 @@ class LoginPage extends Addon
         }
         wp_register_script(
             'addon-loginpage',
-            assets_url( '../assets/dist/wp-loginpage.min.js' , __FILE__ ),
+            assets_url( '../vendor/amostajo/wordpress-login-page/assets/dist/wp-loginpage.min.js' , __FILE__ ),
             $vue
                 ? [ 'addon-loginpage-vue' ]
                 : $this->main->config->get( 'autoenqueue.app-key' )
@@ -185,7 +186,6 @@ class LoginPage extends Addon
         $_SESSION[ self::SECURITY_TOKEN ] = $token;
         return $token;
     }
-
 
     /**
      * Returns session token.
