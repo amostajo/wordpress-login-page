@@ -12,12 +12,12 @@ module.exports = function(grunt)
         uglify: {
             dist: {
                 files: {
-                    'assets/dist/wp-loginpage-vue.min.js': [
-                        'bower_components/vue/dist/vue.min.js',
-                        'assets/js/loginpage.js'
+                    'assets/js/vendor.min.js': [
+                        'node_modules/vue/dist/vue.min.js'
                     ],
-                    'assets/dist/wp-loginpage.min.js': [
-                        'assets/js/vue.component.loginpageform.js',
+                    'assets/js/app.min.js': [
+                        'assets/raw/js/vue.component.loginpageform.js',
+                        'assets/raw/js/vue.loginpage.js'
                     ],
                 }
             }
@@ -28,12 +28,12 @@ module.exports = function(grunt)
             },
             dev: {
                 files: {
-                    'assets/dist/wp-loginpage-vue.js': [
-                        'bower_components/vue/dist/vue.js',
-                        'assets/js/vue.loginpage.js',
+                    'assets/js/vendor.js': [
+                        'node_modules/vue/dist/vue.min.js',
                     ],
-                    'assets/dist/wp-loginpage.js': [
-                        'assets/js/vue.component.loginpageform.js',
+                    'assets/js/app.js': [
+                        'assets/raw/js/vue.component.loginpageform.js',
+                        'assets/raw/js/vue.loginpage.js'
                     ],
                 },
             },

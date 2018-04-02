@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 2.0.5
+ * @version 2.1.0
  */
 class LoginPage extends Addon
 {
@@ -44,6 +44,7 @@ class LoginPage extends Addon
      * @since 2.0.2 Bug fixes.
      * @since 2.0.4 Fixed assets_url call.
      * @since 2.0.5 Load assets with relative path on vendor.
+     * @since 2.1.0 Uses addon_assets_url()
      */
     public function enable_login()
     {
@@ -59,23 +60,23 @@ class LoginPage extends Addon
             || $this->main->config->get( 'autoenqueue.addons.vue' ) === null
         ) {
             wp_register_script(
-                'addon-loginpage-vue',
-                assets_url( '../vendor/amostajo/wordpress-login-page/assets/dist/wp-loginpage-vue.min.js' , __FILE__ ),
+                'addon-loginpage-vendor',
+                addon_assets_url( 'js/vendor.min.js' , __FILE__ ),
                 [ 'jquery' ],
-                '2.0.1',
+                '2.1.0',
                 true
             );
             $vue = true;
         }
         wp_register_script(
             'addon-loginpage',
-            assets_url( '../vendor/amostajo/wordpress-login-page/assets/dist/wp-loginpage.min.js' , __FILE__ ),
+            addon_assets_url( 'js/app.min.js' , __FILE__ ),
             $vue
-                ? [ 'addon-loginpage-vue' ]
+                ? [ 'addon-loginpage-vendor' ]
                 : $this->main->config->get( 'autoenqueue.app-key' )
                     ? [ 'jquery', $this->main->config->get( 'autoenqueue.app-key' ) ]
                     : [ 'jquery' ],
-            '2.0.1',
+            '2.1.0',
             true
         );
         // Enable pages

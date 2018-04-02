@@ -23,7 +23,7 @@ This package requires [Composer](https://getcomposer.org/).
 Add it in your `composer.json` file located on your template's root folder:
 
 ```json
-"amostajo/wordpress-login-page": "2.0.*"
+"amostajo/wordpress-login-page": "2.*.*"
 ```
 
 Then run
@@ -57,13 +57,13 @@ Once installed and configured, this add-on will change your login, signup and re
 
 ### Customization
 
-All views (templates) located at the `src/views` folder can be customized in your theme.
+All views (templates) located at the `assets/views` folder can be customized in your theme.
 
 Copy and paste them in your theme's views folder ( with same folder structure), like:
 
 ```
 [addon-folder]
-    /src
+    /assets
         /views
             /addons
                 /loginpage
@@ -78,15 +78,16 @@ Copy and paste them in your theme's views folder ( with same folder structure), 
 In your theme:
 ```
 [theme-folder]
-    /views
-        /addons
-            /loginpage
-                /emails
+    /assets
+        /views
+            /addons
+                /loginpage
+                    /emails
+                        resetpassword.php
+                    login.php
+                    lostpassword.php
                     resetpassword.php
-                login.php
-                lostpassword.php
-                resetpassword.php
-                signup.php
+                    signup.php
 ```
 
 You can modify the HTML and add as many CSS classes as you please to fit your theme. Though there are a couple of things to consider:
