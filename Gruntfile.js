@@ -19,6 +19,9 @@ module.exports = function(grunt)
                         'assets/raw/js/vue.component.loginpageform.js',
                         'assets/raw/js/vue.loginpage.js'
                     ],
+                    'assets/js/component.min.js': [
+                        'assets/raw/js/vue.component.loginpageform.js',
+                    ],
                 }
             }
         },
@@ -34,6 +37,9 @@ module.exports = function(grunt)
                     'assets/js/app.js': [
                         'assets/raw/js/vue.component.loginpageform.js',
                         'assets/raw/js/vue.loginpage.js'
+                    ],
+                    'assets/js/component.js': [
+                        'assets/raw/js/vue.component.loginpageform.js',
                     ],
                 },
             },

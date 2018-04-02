@@ -12,7 +12,7 @@ use WPMVC\Request;
  * @author Alejandro Mostajo
  * @license MIT
  * @package Amostajo\Wordpress\LoginPageAddon
- * @version 2.1.0
+ * @version 2.1.1
  */
 class LoginPage extends Addon
 {
@@ -45,6 +45,7 @@ class LoginPage extends Addon
      * @since 2.0.4 Fixed assets_url call.
      * @since 2.0.5 Load assets with relative path on vendor.
      * @since 2.1.0 Uses addon_assets_url()
+     * @since 2.1.1 Only load component if vue is disabled.
      */
     public function enable_login()
     {
@@ -70,7 +71,7 @@ class LoginPage extends Addon
         }
         wp_register_script(
             'addon-loginpage',
-            addon_assets_url( 'js/app.min.js' , __FILE__ ),
+            addon_assets_url( $vue ? 'js/app.min.js' : 'js/component.min.js', __FILE__ ),
             $vue
                 ? [ 'addon-loginpage-vendor' ]
                 : $this->main->config->get( 'autoenqueue.app-key' )
