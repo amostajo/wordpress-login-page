@@ -143,6 +143,9 @@ class LoginController extends Controller
     /**
      * Performs authentication operation.
      * @since 1.0
+     * @since 2.1.2 SSL flag check.
+     *
+     * @link https://developer.wordpress.org/reference/functions/wp_signon/
      *
      * @param string $user_login   User login name or email.
      * @param string $user_pass    User password.
@@ -163,7 +166,7 @@ class LoginController extends Controller
                 'user_password' => $user_pass,
                 'remember'      => $remember,
             ],
-            get_option( 'addon_loginpage_securecookie', false )
+            get_option( 'addon_loginpage_securecookie', is_ssl() )
         );
 
         if ( is_wp_error( $user ) ) {
